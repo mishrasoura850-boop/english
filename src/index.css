@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-slate-50 text-slate-900;
+  }
+}
+
+/* ==============================================================================
+   Teacher Notebook Styling
+   ============================================================================== */
+
+.notebook-paper {
+  background-color: #fcfbf7;
+  background-image: 
+    linear-gradient(90deg, transparent 79px, #fca5a5 79px, #fca5a5 81px, transparent 81px),
+    linear-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 100% 100%, 100% 2.2rem;
+  background-position: 0 0, 0 1.2rem;
+  line-height: 2.2rem;
+}
+
+@media (max-width: 640px) {
+  .notebook-paper {
+    background-image: 
+      linear-gradient(90deg, transparent 38px, #fca5a5 38px, #fca5a5 40px, transparent 40px),
+      linear-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 100% 100%, 100% 2.0rem;
+    background-position: 0 0, 0 1.0rem;
+    line-height: 2.0rem;
+  }
+}
+
+/* Spiral binder holes */
+.spiral-binder {
+  background-image: radial-gradient(circle at 14px center, #475569 6px, #cbd5e1 7px, transparent 8px);
+  background-size: 100% 2.2rem;
+  background-repeat: repeat-y;
+}
+
+/* Handwritten Teacher Red Pen marks */
+.red-pen-circle {
+  position: relative;
+  display: inline-block;
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.red-pen-circle::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -6px;
+  right: -6px;
+  bottom: -4px;
+  border: 2px solid #dc2626;
+  border-radius: 50% 45% 60% 50% / 50% 60% 45% 55%;
+  transform: rotate(-2deg);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.red-pen-wavy {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #dc2626;
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 4px;
+  color: #b91c1c;
+  cursor: pointer;
+}
+
+.red-pen-strike {
+  position: relative;
+  color: #dc2626;
+  text-decoration: line-through;
+  text-decoration-color: #dc2626;
+  text-decoration-thickness: 2px;
+}
+
+/* Teacher Grade Stamp */
+.teacher-stamp {
+  border: 3px solid #dc2626;
+  color: #dc2626;
+  font-family: 'Patrick Hand', 'Caveat', cursive;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  transform: rotate(-6deg);
+  box-shadow: inset 0 0 0 2px #dc2626, 0 3px 10px rgba(220, 38, 38, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(254, 226, 226, 0.4);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Audio Wave Visualizer bar animation */
+@keyframes wave-pulse {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.audio-bar {
+  animation: wave-pulse 1s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
